@@ -31,9 +31,14 @@
                     <p class="text-gray-300 text-xs">{{ $course->created_at->diffForHumans() }}</p>
                 </div>
             </div>
+            <div class="grid grid-cols-2 gap-4 mt-8">
+                @foreach($course->similar() as $course)
+                    <x-course-card :course="$course" />
+                @endforeach
+            </div>
         </div>
     </div>
-    <div class="text-center mt-8">
+    <div class="text-center mt-12">
         <h1 class="text-3xl text-gray-700 mb-2 uppercase">Últimos Cursos</h1>
         <h2 class="text-xl text-gray-600">Fórmate online como profesional en tecnología</h2>
     </div>
